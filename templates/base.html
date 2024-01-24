@@ -2,6 +2,11 @@
 
 {% block title %}Flasky{% endblock %}
 
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename='yandex.svg') }}">
+{% endblock %}
+
 {% block navbar %}
 <div class="navbar navbar-inverse" role="navigation">
     <div class="container">
