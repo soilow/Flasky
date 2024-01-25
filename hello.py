@@ -2,9 +2,10 @@ from flask import Flask, request, redirect, abort, render_template, url_for, ses
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_wtf import FlaskForm
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
-from flask_sqlalchemy import SQLAlchemy
 
 import os
 from datetime import datetime
@@ -17,6 +18,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'da
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 
